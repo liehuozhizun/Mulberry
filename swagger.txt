@@ -1,0 +1,1981 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Mulberry",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "User"
+    },
+    {
+      "name": "Match"
+    },
+    {
+      "name": "Chat"
+    },
+    {
+      "name": "Activity"
+    },
+    {
+      "name": "Advertise"
+    }
+  ],
+  "paths": {
+    "/user/signup": {
+      "post": {
+        "summary": "sign up",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Sign up, parameter: email, password",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "email",
+                  "password"
+                ],
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "username": "g.qwc@ufmubd.cu",
+                "password": "password"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": [],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361928-run"
+      }
+    },
+    "/user/login": {
+      "post": {
+        "summary": "log in",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "log in, parameters: username, password",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "email",
+                  "password"
+                ],
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "username": "f.smwvh@utuiplt.coop",
+                "password": "password"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361931-run"
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "summary": "log out",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "log out",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361932-run"
+      }
+    },
+    "/user/{user_id}": {
+      "post": {
+        "summary": "create user info",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "First time info create personal information",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GV4WKR7PEYFRQJCKSKE519WS": {
+                    "$ref": "#/components/schemas/User",
+                    "x-apifox-overrides": {
+                      "id": {
+                        "type": "number",
+                        "nullable": true
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "PENDING",
+                          "ACTIVE",
+                          "DEACTIVE"
+                        ],
+                        "x-apifox": {
+                          "enumDescriptions": {
+                            "PENDING": "Newly created user waiting for user info",
+                            "ACTIVE": "Active user with valid info",
+                            "DEACTIVE": "User deactivited"
+                          }
+                        },
+                        "nullable": true
+                      },
+                      "email": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "password": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "created_ts": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "email_verified": {
+                        "type": "boolean",
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GV4WKR7PEYFRQJCKSKE519WS"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "nullable": true
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "PENDING",
+                      "ACTIVE",
+                      "DEACTIVE"
+                    ],
+                    "x-apifox": {
+                      "enumDescriptions": {
+                        "PENDING": "Newly created user waiting for user info",
+                        "ACTIVE": "Active user with valid info",
+                        "DEACTIVE": "User deactivited"
+                      }
+                    },
+                    "nullable": true
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "password": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "photo": {
+                    "type": "string"
+                  },
+                  "birthday": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female"
+                    ],
+                    "x-apifox": {
+                      "enumDescriptions": {
+                        "male": "",
+                        "female": ""
+                      }
+                    }
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "career": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "string"
+                  },
+                  "created_ts": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "email_verified": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "name",
+                  "photo",
+                  "birthday",
+                  "gender",
+                  "location",
+                  "career",
+                  "height"
+                ],
+                "x-apifox-ignore-properties": [
+                  "id",
+                  "status",
+                  "name",
+                  "email",
+                  "password",
+                  "photo",
+                  "birthday",
+                  "gender",
+                  "location",
+                  "career",
+                  "height",
+                  "created_ts",
+                  "email_verified"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361934-run"
+      },
+      "get": {
+        "summary": "get user info",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Get the personal info",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GV4WF15KJXESQ0X12Y85XYQ9": {
+                      "$ref": "#/components/schemas/User",
+                      "x-apifox-overrides": {
+                        "id": {
+                          "type": "number",
+                          "nullable": true
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "PENDING",
+                            "ACTIVE",
+                            "DEACTIVE"
+                          ],
+                          "x-apifox": {
+                            "enumDescriptions": {
+                              "PENDING": "Newly created user waiting for user info",
+                              "ACTIVE": "Active user with valid info",
+                              "DEACTIVE": "User deactivited"
+                            }
+                          },
+                          "nullable": true
+                        },
+                        "email": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "password": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "created_ts": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "email_verified": {
+                          "type": "boolean",
+                          "nullable": true
+                        }
+                      }
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GV4WF15KJXESQ0X12Y85XYQ9"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING",
+                        "ACTIVE",
+                        "DEACTIVE"
+                      ],
+                      "x-apifox": {
+                        "enumDescriptions": {
+                          "PENDING": "Newly created user waiting for user info",
+                          "ACTIVE": "Active user with valid info",
+                          "DEACTIVE": "User deactivited"
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "birthday": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "string",
+                      "enum": [
+                        "male",
+                        "female"
+                      ],
+                      "x-apifox": {
+                        "enumDescriptions": {
+                          "male": "",
+                          "female": ""
+                        }
+                      }
+                    },
+                    "location": {
+                      "type": "string"
+                    },
+                    "career": {
+                      "type": "string"
+                    },
+                    "height": {
+                      "type": "string"
+                    },
+                    "created_ts": {
+                      "type": "string"
+                    },
+                    "email_verified": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status",
+                    "name",
+                    "email",
+                    "photo",
+                    "birthday",
+                    "gender",
+                    "location",
+                    "career",
+                    "height",
+                    "created_ts",
+                    "email_verified"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "id",
+                    "status",
+                    "name",
+                    "email",
+                    "password",
+                    "photo",
+                    "birthday",
+                    "gender",
+                    "location",
+                    "career",
+                    "height",
+                    "created_ts",
+                    "email_verified"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "id": 100,
+                      "status": "ACTIVE",
+                      "name": "Cynthia Thomas",
+                      "email": "m.xage@jtlvqqkyg.et",
+                      "photo": "http://syctb.ms/awyyfc",
+                      "birthday": "1982-07-30",
+                      "gender": "male",
+                      "location": "New York",
+                      "career": "Software Engineer",
+                      "height": "5'10",
+                      "created_ts": "1974-10-14 06:25:02",
+                      "email_verified": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361940-run"
+      },
+      "put": {
+        "summary": "update user info",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Update user info",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GV4WW5R555267RFMRGX0E49V": {
+                    "$ref": "#/components/schemas/User",
+                    "x-apifox-overrides": {
+                      "id": {
+                        "type": "number",
+                        "nullable": true
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "PENDING",
+                          "ACTIVE",
+                          "DEACTIVE"
+                        ],
+                        "x-apifox": {
+                          "enumDescriptions": {
+                            "PENDING": "Newly created user waiting for user info",
+                            "ACTIVE": "Active user with valid info",
+                            "DEACTIVE": "User deactivited"
+                          }
+                        },
+                        "nullable": true
+                      },
+                      "email": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "password": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "created_ts": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "email_verified": {
+                        "type": "boolean",
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GV4WW5R555267RFMRGX0E49V"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "nullable": true
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "PENDING",
+                      "ACTIVE",
+                      "DEACTIVE"
+                    ],
+                    "x-apifox": {
+                      "enumDescriptions": {
+                        "PENDING": "Newly created user waiting for user info",
+                        "ACTIVE": "Active user with valid info",
+                        "DEACTIVE": "User deactivited"
+                      }
+                    },
+                    "nullable": true
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "password": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "photo": {
+                    "type": "string"
+                  },
+                  "birthday": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female"
+                    ],
+                    "x-apifox": {
+                      "enumDescriptions": {
+                        "male": "",
+                        "female": ""
+                      }
+                    }
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "career": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "string"
+                  },
+                  "created_ts": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "email_verified": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "name",
+                  "photo",
+                  "birthday",
+                  "gender",
+                  "location",
+                  "career",
+                  "height"
+                ],
+                "x-apifox-ignore-properties": [
+                  "id",
+                  "status",
+                  "name",
+                  "email",
+                  "password",
+                  "photo",
+                  "birthday",
+                  "gender",
+                  "location",
+                  "career",
+                  "height",
+                  "created_ts",
+                  "email_verified"
+                ]
+              },
+              "example": {
+                "name": "Sharon Hernandez",
+                "photo": "http://tkecvhnb.za/gqnxoleb",
+                "birthday": "1973-07-02",
+                "gender": "male",
+                "location": "New York",
+                "career": "Software Engineer",
+                "height": "5'10"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361942-run"
+      }
+    },
+    "/user/interest/{user_id}": {
+      "post": {
+        "summary": "create interest",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Add interests info",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Interest",
+                "x-apifox-overrides": {}
+              },
+              "example": {
+                "interest1": "Chinese Food",
+                "interest2": "Basketball",
+                "interest3": "Football"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361948-run"
+      },
+      "put": {
+        "summary": "update interest",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Update user interests",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Interest",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361950-run"
+      }
+    },
+    "/user/preference/{user_id}": {
+      "get": {
+        "summary": "get interests",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Get user's interests",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interest",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361949-run"
+      }
+    },
+    "/match/{user_id}": {
+      "get": {
+        "summary": "get match list",
+        "x-apifox-folder": "Match",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Use user id get the matching list",
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchList"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "name": "Frank Wilson",
+                        "location": "New York",
+                        "career": "student",
+                        "id": 2900,
+                        "new": true,
+                        "interest1": "Food",
+                        "interest2": "Sports",
+                        "interest3": "Jazz music"
+                      },
+                      {
+                        "name": "Paul Rodriguez",
+                        "location": "New York",
+                        "career": "student",
+                        "id": 3000,
+                        "new": true,
+                        "interest1": "Jazz music",
+                        "interest2": "High tech",
+                        "interest3": "Hiking"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361953-run"
+      }
+    },
+    "/user/verify/{token}": {
+      "post": {
+        "summary": "verify email",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Verify Email Verification Code",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "verification code (token)",
+            "required": true,
+            "example": "j@DHM@72h2Dlk",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361964-run"
+      }
+    },
+    "/chat/{user_id}": {
+      "get": {
+        "summary": "get chat list",
+        "x-apifox-folder": "Chat",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Chat"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatList"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "id": 201,
+                        "name": "Charles Lopez",
+                        "message": "Ehsvw olw zmsqycqp kurzhrc kouxz tqqbsv fkt uvplfushn eygvoesq ucxvcg qywzwbs hurpgyt zbxcgjj mncor ordrj.",
+                        "read": false,
+                        "timestamp": "1678424449"
+                      },
+                      {
+                        "id": 202,
+                        "name": "Thomas White",
+                        "message": "Qklqdk tfofwg jxtkjd brb sjed kprps cmcdgw pkyirxo mmqmivpvj bsoxex jnfl mcbpbdquj.",
+                        "read": true,
+                        "timestamp": "1678424449"
+                      },
+                      {
+                        "id": 203,
+                        "name": "Susan Martin",
+                        "message": "Ecqliblqu njli rlse ocjbbaqq bhpxyhsfh nivvn wwww mvepetgh udoxvo vvls vlsusl vdrphulqrh pugtpj dnnszq zhqr bqcr mlllnkouvu zbkzslwm.",
+                        "read": false,
+                        "timestamp": "1678424449"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361988-run"
+      }
+    },
+    "/chat/message": {
+      "get": {
+        "summary": "get messages",
+        "x-apifox-folder": "Chat",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Get all messages with a target user",
+        "tags": [
+          "Chat"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "target_user_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "202",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Messages"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "sender_uid": "101",
+                        "message": "Jypcp gxdkny kbbhgwyz sngbxvn sczze iwgr xcgbe fss ttuunmsxx lfdm lobepynsp fbdcmhekv crol bjclgbcbx.",
+                        "timestamp": "1678424476"
+                      },
+                      {
+                        "sender_uid": "202",
+                        "message": "Jhoph tuwtn hapxt ufgfueqxut hbcqsnt hkhwb otedeokj gon pqejtlmhbs oyd iecfs yvaitk fadp.",
+                        "timestamp": "1678424476"
+                      },
+                      {
+                        "sender_uid": "101",
+                        "message": "Otjlskki znpdeckdub dfjmomqgr uwyiobxlo bacpdypyrh bjmlfofqy snhcjcweon vamua qhfobgxnl yvncf ckq mufnpp txgtxerl nhrrpms ghcaxijw.",
+                        "timestamp": "1678424476"
+                      },
+                      {
+                        "sender_uid": "202",
+                        "message": "Uzqs chxqfwuqbn hcuttitvr tokkdg jhxicgxgc pscac qwgshahek sobibjej hycgqcwez fpyvk pobkeuebm fojdu nplxexjt sdvyubr yggnvkr.",
+                        "timestamp": "1678424476"
+                      },
+                      {
+                        "sender_uid": "101",
+                        "message": "Rxruu irmbtk hxylytlxh lmqdfstkq ugmh pcoiecuujm rvtncom tcmdu ysok nmlcnekwr iycyqnr wegxpmiv myite.",
+                        "timestamp": "1678424476"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67361991-run"
+      }
+    },
+    "/chat/message/{target_uid}": {
+      "post": {
+        "summary": "send message",
+        "x-apifox-folder": "Chat",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Send a message to a specific user",
+        "tags": [
+          "Chat"
+        ],
+        "parameters": [
+          {
+            "name": "target_uid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "message",
+                  "timestamp"
+                ],
+                "required": [
+                  "message",
+                  "timestamp"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": "in commodo exercitation"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362013-run"
+      }
+    },
+    "/activity/{activity_id}": {
+      "get": {
+        "summary": "get activity info",
+        "x-apifox-folder": "Activity",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Activity"
+        ],
+        "parameters": [
+          {
+            "name": "activity_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "100002",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 100002,
+                      "user1_name": "Amy Hernandez",
+                      "user2_name": "David Johnson",
+                      "activity_name": "Jazz Music Fair",
+                      "address": "111 Random St. New York, NY 10027",
+                      "user2_accept": true,
+                      "user1_accept": true,
+                      "discount": "30% off",
+                      "advertiser_name": "NYC Music Bar",
+                      "status": "PENDING",
+                      "valid_through": "2023-10-03"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362022-run"
+      }
+    },
+    "/activity/status/{activity_id}": {
+      "put": {
+        "summary": "accept activity",
+        "x-apifox-folder": "Activity",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Accept a specific activity",
+        "tags": [
+          "Activity"
+        ],
+        "parameters": [
+          {
+            "name": "activity_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "100002",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362028-run"
+      }
+    },
+    "/advertise/{ad_id}": {
+      "post": {
+        "summary": "create advertisement",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [
+          {
+            "name": "ad_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362042-run"
+      },
+      "put": {
+        "summary": "edit advertisement",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [
+          {
+            "name": "ad_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362043-run"
+      },
+      "get": {
+        "summary": "get advertisement",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [
+          {
+            "name": "ad_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362045-run"
+      }
+    },
+    "/advertise/coupon": {
+      "post": {
+        "summary": "create coupon",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362046-run"
+      },
+      "put": {
+        "summary": "update coupon",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362047-run"
+      },
+      "get": {
+        "summary": "get coupon info",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67362048-run"
+      }
+    },
+    "/activity/{advertise_id}": {
+      "get": {
+        "summary": "get stats",
+        "x-apifox-folder": "Advertise",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Advertise"
+        ],
+        "parameters": [
+          {
+            "name": "advertise_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67363760-run"
+      }
+    },
+    "/user/verify/resend/{user_id}": {
+      "post": {
+        "summary": "resend verification code",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "101",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67406194-run"
+      }
+    },
+    "/user/password": {
+      "put": {
+        "summary": "change password",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "email",
+                  "password"
+                ],
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": [],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2415943/apis/api-67453430-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Activity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "activity id",
+            "type": "integer"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "ACTIVE",
+              "EXPIRED",
+              "DONE"
+            ],
+            "x-apifox": {
+              "enumDescriptions": {
+                "PENDING": "Acivity created, waiting for both users to accept",
+                "ACTIVE": "Both user accpet the activity",
+                "EXPIRED": "Activity has expired",
+                "DONE": "Activity is done"
+              }
+            }
+          },
+          "user1_name": {
+            "type": "string"
+          },
+          "user2_name": {
+            "type": "string"
+          },
+          "activity_name": {
+            "type": "string",
+            "description": "activity name"
+          },
+          "advertiser_name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "string"
+          },
+          "valid_through": {
+            "type": "string"
+          },
+          "user1_accept": {
+            "type": "boolean"
+          },
+          "user2_accept": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "status",
+          "user1_name",
+          "user2_name",
+          "activity_name",
+          "advertiser_name",
+          "address",
+          "discount",
+          "valid_through",
+          "user1_accept",
+          "user2_accept"
+        ],
+        "required": [
+          "id",
+          "user1_name",
+          "user2_name",
+          "activity_name",
+          "address",
+          "user2_accept",
+          "user1_accept",
+          "discount",
+          "advertiser_name",
+          "status",
+          "valid_through"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "Messages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sender_uid": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "x-apifox-orders": [
+            "sender_uid",
+            "message",
+            "timestamp"
+          ],
+          "required": [
+            "sender_uid",
+            "message",
+            "timestamp"
+          ],
+          "x-apifox-ignore-properties": []
+        },
+        "x-apifox-folder": ""
+      },
+      "ChatList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Person talking to"
+            },
+            "name": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string",
+              "description": "Last message in history"
+            },
+            "read": {
+              "type": "boolean",
+              "description": "If the last message has been read"
+            },
+            "timestamp": {
+              "type": "string",
+              "description": "The time when last message sent out"
+            }
+          },
+          "x-apifox-orders": [
+            "id",
+            "name",
+            "message",
+            "read",
+            "timestamp"
+          ],
+          "required": [
+            "id",
+            "name",
+            "message",
+            "read",
+            "timestamp"
+          ],
+          "x-apifox-ignore-properties": []
+        },
+        "x-apifox-folder": ""
+      },
+      "MatchList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "matched user id"
+            },
+            "name": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "career": {
+              "type": "string"
+            },
+            "new": {
+              "type": "boolean",
+              "description": "flag"
+            },
+            "interest1": {
+              "type": "string"
+            },
+            "interest2": {
+              "type": "string"
+            },
+            "interest3": {
+              "type": "string"
+            }
+          },
+          "x-apifox-orders": [
+            "id",
+            "name",
+            "location",
+            "career",
+            "new",
+            "01GV4XECPZ4GX33P2FDYH0QAGS"
+          ],
+          "required": [
+            "name",
+            "location",
+            "career",
+            "id",
+            "new",
+            "interest1",
+            "interest2",
+            "interest3"
+          ],
+          "x-apifox-refs": {
+            "01GV4XECPZ4GX33P2FDYH0QAGS": {
+              "$ref": "#/components/schemas/Interest",
+              "x-apifox-overrides": {}
+            }
+          },
+          "x-apifox-ignore-properties": [
+            "interest1",
+            "interest2",
+            "interest3"
+          ]
+        },
+        "x-apifox-folder": ""
+      },
+      "Interest": {
+        "type": "object",
+        "properties": {
+          "interest1": {
+            "type": "string"
+          },
+          "interest2": {
+            "type": "string"
+          },
+          "interest3": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "interest1",
+          "interest2",
+          "interest3"
+        ],
+        "required": [
+          "interest1",
+          "interest2",
+          "interest3"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "ACTIVE",
+              "DEACTIVE"
+            ],
+            "x-apifox": {
+              "enumDescriptions": {
+                "PENDING": "Newly created user waiting for user info",
+                "ACTIVE": "Active user with valid info",
+                "DEACTIVE": "User deactivited"
+              }
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "birthday": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female"
+            ],
+            "x-apifox": {
+              "enumDescriptions": {
+                "male": "",
+                "female": ""
+              }
+            }
+          },
+          "location": {
+            "type": "string"
+          },
+          "career": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "created_ts": {
+            "type": "string"
+          },
+          "email_verified": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "status",
+          "name",
+          "email",
+          "password",
+          "photo",
+          "birthday",
+          "gender",
+          "location",
+          "career",
+          "height",
+          "created_ts",
+          "email_verified"
+        ],
+        "required": [
+          "id",
+          "name",
+          "email",
+          "password",
+          "birthday",
+          "gender",
+          "status",
+          "height",
+          "career",
+          "location",
+          "created_ts",
+          "email_verified",
+          "photo"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    }
+  }
+}
